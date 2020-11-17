@@ -1,0 +1,44 @@
+<p>reactive-form works!</p>
+
+<h1>Reactive Form Demo</h1>
+
+<form [formGroup]='bookForm' novalidate>
+    <div class='form-group'>
+        <label class="center-block">Title
+            <input class='form-control' formControlName="title">
+        </label>
+    </div><br>
+    <div [hidden]="bookForm.controls.title.valid || bookForm.controls.title.pristine">
+        Title is mandatory & Length should be greater than 5 letter
+    </div>
+
+        <br>
+    <div class='form-group'>
+        <label class="center-block">Author
+            <input class='form-control' formControlName="author">
+        </label>
+    </div><br>
+        <br>
+    <div class='form-group'>
+        <label class="center-block">Price
+            <input class='form-control' formControlName="price">
+        </label>
+    </div>
+        <br>
+    <div class='form-group'>
+        <label for='genre'>Genre
+          <!-- <input class='form-control' formControlName="genre"> -->
+        <select class="center-block">
+            <option value="Horror">Horror</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Romance">Romance</option>
+            <input class='form-control' formControlName="genre"> 
+        </select>
+        </label>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+Form Status
+{{bookForm.value}}
